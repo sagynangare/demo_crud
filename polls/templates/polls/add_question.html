@@ -1,0 +1,17 @@
+
+<form method="POST">
+	{% csrf_token %}
+	{% if messages %}
+	{% for msg in messages %}
+	<div class="alert alert-{{ msg.tags }} alert-dismissible">
+		<a href="{url 'polls:add_question'}" class="close" data-dissmiss="alert"></a>
+	</div>
+	{% endfor %}
+	{% endif %}
+
+	{{ question.question_text }}
+	{{ question.pub_date }}
+	
+	<input type="submit" name="Submit",class="btn btn-outline-dark-green">
+	<input type="reset" name="Reset", class="btn btn-outline-brown">
+</form>
